@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TodoApp from '../components/TodoApp.jsx';
+---
+
+<Layout title="A Very Simple ToDo App" description="A very simple todo app made with Astro and React">
+	<main>
+		<section class="todo__container--outter">
+			<TodoApp client:load />
+		</section>
+	</main>
+</Layout>
+
+<style lang="sass">
+
+</style>

@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: var(--font-size-xl);
+}
+
+h2 {
+  font-size: var(--font-size-lg);
+}
+
+.todo__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.button {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.5em 0.8em;
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.button:hover {
+  background-color: var(--color-primary-dark);
+}
+.button--save {
+  background-color: var(--color-success);
+}
+.button--save:hover {
+  background-color: var(--color-success-dark);
+}
+.button--clear {
+  background-color: var(--color-danger);
+}
+.button--clear:hover {
+  background-color: var(--color-danger-dark);
+}/*# sourceMappingURL=TodoApp.css.map */
