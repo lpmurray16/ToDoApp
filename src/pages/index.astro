@@ -8,9 +8,24 @@ import TodoApp from '../components/TodoApp.jsx';
 		<section class="todo__container--outter">
 			<TodoApp client:load />
 		</section>
+		<section>
+			<p>Check out more at <a href="http://logan-murray.dev">logan-murray.dev</a></p>
+		</section>
 	</main>
 </Layout>
 
-<style lang="sass">
+<style>
+	p {
+		text-align: center;
+		margin-top: 2em;
+	}
 
+	a {
+		color: var(--color-primary);
+		text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
 </style>

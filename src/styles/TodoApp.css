@@ -12,16 +12,58 @@ h2 {
   font-size: var(--font-size-lg);
 }
 
-.todo__list {
+form {
   display: flex;
-  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+form input {
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+  margin-right: 0.25em;
+  padding: 0.5em;
+  width: 100%;
+  flex: 1 1 auto;
+}
+form button {
+  flex: 1 0 auto;
+}
+
+.todo__heading {
+  display: flex;
+  flex-flow: column;
   align-items: center;
   justify-content: center;
+  margin: 2em auto;
+}
+.todo__list--wrapper {
+  margin: 4vw auto;
   width: 100%;
-  height: 100%;
+  max-width: 100%;
+}
+.todo__list--item {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em;
+  border-bottom: 1px solid var(--color-border);
+}
+.todo__list--item:last-of-type {
+  border-bottom: none;
+  margin-bottom: 8px;
+}
+.todo__list--item::before {
+  content: "-";
+  color: var(--color-primary);
+  margin-right: 0.5em;
 }
 
 .button {
+  display: inline-block;
   background-color: var(--color-primary);
   color: var(--color-white);
   border: none;
@@ -31,18 +73,32 @@ h2 {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
+.button__group {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 1em auto;
+  gap: 0.5em;
+}
 .button:hover {
   background-color: var(--color-primary-dark);
 }
-.button--save {
+.button--remove, .button--undo {
+  margin-left: 8px;
+}
+.button--save, .button--remove {
   background-color: var(--color-success);
 }
-.button--save:hover {
+.button--save:hover, .button--remove:hover {
   background-color: var(--color-success-dark);
 }
-.button--clear {
+.button--undo {
+  text-decoration: none !important;
+}
+.button--clear, .button--undo {
   background-color: var(--color-danger);
 }
-.button--clear:hover {
+.button--clear:hover, .button--undo:hover {
   background-color: var(--color-danger-dark);
 }/*# sourceMappingURL=TodoApp.css.map */

@@ -1,13 +1,30 @@
-const TodoItem = ({ key, todo, removeTodo }) => {
+const TodoItem = ({ key, todo, removeTodo, isRemoved, undoTodo }) => {
     return (
-        <li className="todo__list todo__list--item" key={key}>
-            {todo.title}
-            <button
-                className="button button--remove"
-                onClick={() => removeTodo(todo.id)}
+        <li className="todo__list--item" key={key}>
+            <span
+                style={
+                    isRemoved
+                        ? { textDecoration: "line-through" }
+                        : { textDecoration: "none" }
+                }
             >
-                Remove
-            </button>
+                {todo.title}
+            </span>
+            {isRemoved ? (
+                <button
+                    className="button button--undo"
+                    onClick={() => undoTodo(todo.id)}
+                >
+                    Undo
+                </button>
+            ) : (
+                <button
+                    className="button button--remove"
+                    onClick={() => removeTodo(todo.id)}
+                >
+                    Complete Task ✅
+                </button>
+            )}
         </li>
     );
 };

@@ -44,6 +44,13 @@ const TodoApp = () => {
         setDoneTodos([]);
     };
 
+    //undo a completed todo
+    const undoTodo = (id) => {
+        const updatedDoneTodos = doneTodos.filter((todo) => todo.id !== id);
+        setDoneTodos(updatedDoneTodos);
+        setTodos([...todos, doneTodos.find((todo) => todo.id === id)]);
+    };
+
     // store the todo list and doneTodos in local storage
     const saveTodos = () => {
         localStorage.setItem("todos", JSON.stringify(todos));
@@ -66,7 +73,10 @@ const TodoApp = () => {
 
     return (
         <div className="todo-app">
-            <h1>Todo App</h1>
+            <div className="todo__heading">
+                <h1>TODO APP</h1>
+                <p>Created Using Astro🚀 and React⚛️</p>
+            </div>
 
             <form
                 onSubmit={(e) => {
@@ -76,26 +86,43 @@ const TodoApp = () => {
                 }}
             >
                 <input type="text" name="todo" placeholder="Add a todo" />
-                <button type="submit">Add</button>
+                <button className="button button--submit" type="submit">
+                    Add +
+                </button>
             </form>
-            <h2>To Do List:</h2>
-            <TodoList
-                todos={todos}
-                removeTodo={removeTodo}
-                clearDoneTodos={clearDoneTodos}
-            />
-            <h2>Done Todos:</h2>
-            <TodoList
-                todos={doneTodos}
-                removeTodo={removeTodo}
-                clearDoneTodos={clearDoneTodos}
-            />
-            <button className="button button--save" onClick={saveTodos}>
-                Save
-            </button>
-            <button className="button button--load" onClick={loadTodos}>
-                Load
-            </button>
+            <div className="todo__list todo__list--wrapper">
+                <h2>TO DO:</h2>
+                <TodoList
+                    todos={todos}
+                    removeTodo={removeTodo}
+                    clearDoneTodos={clearDoneTodos}
+                    isDoneList={false}
+                    undoTodo={undoTodo}
+                />
+            </div>
+            <div className="todo__list todo__list--wrapper">
+                <h2>COMPLETED:</h2>
+                {doneTodos.length ? (
+                    <TodoList
+                        todos={doneTodos}
+                        removeTodo={removeTodo}
+                        clearDoneTodos={clearDoneTodos}
+                        isDoneList={true}
+                        undoTodo={undoTodo}
+                    />
+                ) : (
+                    <p style={{ marginTop: "10px" }}>Complete some todos!</p>
+                )}
+            </div>
+
+            <div className="button__group">
+                <button className="button button--save" onClick={saveTodos}>
+                    Save
+                </button>
+                <button className="button button--load" onClick={loadTodos}>
+                    Load
+                </button>
+            </div>
         </div>
     );
 };
