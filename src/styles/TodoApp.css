@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -49,7 +50,7 @@ form button {
   max-width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5em;
+  padding: 0.7em;
   border-bottom: 1px solid var(--color-border);
 }
 .todo__list--item:last-of-type {
@@ -57,7 +58,7 @@ form button {
   margin-bottom: 8px;
 }
 .todo__list--item::before {
-  content: "-";
+  content: "»";
   color: var(--color-primary);
   margin-right: 0.5em;
 }
